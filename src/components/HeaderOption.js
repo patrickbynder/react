@@ -13,7 +13,7 @@ export default HeaderOption;
 
 const HeaderOptionContainer = styled.div`
     cursor: pointer;
-
+    
     :hover {
         color: #54b982;
     }

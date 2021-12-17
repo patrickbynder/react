@@ -34,6 +34,13 @@ export default function Header() {
 const HeaderContainer = styled.div`
   background: #1a1b1c;
   color: #686869;
+  width: 70px;
+  align-items: center;
+    display:flex;
+    justify-content: center;
+    height: 80vh;
 `;
 
-const HeaderLeft = styled.div``;
+const HeaderLeft = styled.div`
+  
+  `;
