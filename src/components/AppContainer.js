@@ -6,7 +6,7 @@ import Content from "./Content";
 import img from "../img/bg.jpg";
 import styled from "styled-components";
 import { ThemeContext } from "../context/theme";
-import ProfilePicture from"./Profile";
+import ProfilePicture from "./Profile";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -15,36 +15,31 @@ export default function Website() {
   console.log(theme, theme);
 
   return (
-
     <BrowserRouter>
-    
-    <test>
+      <test>
         <div className="text">Its a {isDark ? "Dark" : "Light"} theme</div>
         <button onClick={toggleTheme}>Toggle Theme</button>
-    </test>
+      </test>
 
-      <AppContainer
-        style={{ color: theme.color, background: theme.backgroundColor }}
-      >
-        <Header />
+      <AppContainer theme={theme.color}>
+        <Header theme={theme.color} />
 
         <ProfilePicture />
 
         <ContentContainer>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/Content" element={<Content />} />
-            </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Content" element={<Content />} />
+          </Routes>
         </ContentContainer>
-
       </AppContainer>
     </BrowserRouter>
   );
 }
 
 const AppContainer = styled.div`
-  color: ${(props) => props.theme.color};
-  background: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme};
+  background-color: ${(props) => props.theme};
   height: 95vh;
   margin-top: 2.5vh;
   margin-bottom: 2.5vh;
@@ -54,7 +49,7 @@ const AppContainer = styled.div`
 `;
 
 const ContentContainer = styled.div`
-    width: 600px;
-    height: 100%;
-    padding: 25px;
-`
+  width: 600px;
+  height: 100%;
+  padding: 25px;
+`;
